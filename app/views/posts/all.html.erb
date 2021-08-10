@@ -1,0 +1,15 @@
+<div class="container">
+<h1>All Tasks</h1>
+<ul>
+  <% @posts.each do |post| %>
+    <li>On <%= post.created_at %> you did <%= post.skill%> for <%= post.hours %> hours
+    <%= link_to "Edit", post_edit_path(post) %>
+    <%= link_to "Delete",
+            post_path(post),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+     </li>
+    <br>
+  <% end %>
+</ul>
+</div>
