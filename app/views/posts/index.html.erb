@@ -1,7 +1,7 @@
 <div class="container">
 <h1>What did you accomplish today?</h1>
 <%= simple_form_for(@post) do |t| %>
-  <%= t.input :skill %>
+  <%= t.input :skill, collection: Post::SKILL %>
   <%= t.input :hours %>
   <%= t.submit %>
 <% end %>
