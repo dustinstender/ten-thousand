@@ -1,6 +1,9 @@
 <div class="container">
 <h1>All Tasks</h1>
 <ul>
+  <% total_hours = [] %>
+  <% rails_hours = []%>
+  <% javascript_hours = [] %>
   <% @posts.each do |post| %>
     <li>On <%= post.created_at %> you did <%= post.skill%> for <%= post.hours %> hours
     <%= link_to "Edit", post_edit_path(post) %>
@@ -9,7 +12,17 @@
             method: :delete,
             data: { confirm: "Are you sure?" } %>
      </li>
+     <% if (post.skill === "Rails")  %>
+     <% rails_hours << post.hours %>
+     <% end %>
+     <% total_hours << post.hours %>
+     <%  %>
     <br>
   <% end %>
 </ul>
+<% more_to_go = 10000 - (total_hours.sum) %>
+<p>You have put in <%= total_hours.sum %> hours of Web Development. Only <%= more_to_go %> more until you don't suck.</p>
+<p>You have <%= rails_hours.sum %> hours of Ruby on Rails. </p>
 </div>
+
+<%# method is in about %>

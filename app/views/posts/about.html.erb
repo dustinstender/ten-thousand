@@ -1,1 +1,8 @@
 <h1>About us</h1>
+<% Post::SKILL.each do |skill| %>
+ <% skill = [] %>
+  <% @posts.each do |post|  %>
+    <% if post.skill === skill %>
+      <% skill << post.hours %>
+  <% end %>
+<% end %>
